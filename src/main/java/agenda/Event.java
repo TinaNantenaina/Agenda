@@ -41,7 +41,11 @@ public class Event {
      */
     public boolean isInDay(LocalDate aDay) {
         // TODO : implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        boolean isInDay = false;
+        LocalDateTime dayEnd = getEnd();
+        if(aDay.compareTo(myStart.toLocalDate())>=0 && aDay.compareTo(dayEnd.toLocalDate())<=0)
+            isInDay = true;
+        return isInDay;
     }
    
     /**
@@ -64,6 +68,10 @@ public class Event {
      */
     public Duration getDuration() {
         return myDuration;
+    }
+
+    private LocalDateTime getEnd() {
+        return myStart.plus(this.getDuration());
     }
 
    
