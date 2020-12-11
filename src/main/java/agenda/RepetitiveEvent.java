@@ -43,6 +43,33 @@ public class RepetitiveEvent extends Event {
         this.exception.add(date);
     }
     
+    @Override
+    public boolean isInDay(LocalDate theDay){
+        if(exception.contains(theDay)){
+            return false;
+        }
+        switch (this.frequency){
+            case DAYS : 
+                return this.getStart().toLocalDate().isBefore(theDay) || this.getStart().toLocalDate().equals(theDay);
+            case WEEKS :
+                for(int i =0;i<53;i++){
+                    if(this.getStart().toLocalDate().plus(i, ChronoUnit.WEEKS).equals(theDay)){
+                        return true;
+                    }
+                }
+                return false;   
+            case MONTHS:
+                for(int i =0;i<12;i++){
+                    if(this.getStart().toLocalDate().plus(i, ChronoUnit.MONTHS).equals(theDay)){
+                        return true;
+                    }
+                }
+                return false;
+        }
+        
+        return this.getStart().toLocalDate().equals(theDay);
+        }
+    
 
     /**
      *
@@ -51,6 +78,11 @@ public class RepetitiveEvent extends Event {
     public ChronoUnit getFrequency() {
         // méthode implémentée
         return this.frequency;   
+    }
+    
+    @Override
+    public String toString(){
+        return this.getTitle()+" "+this.getStart()+" "+this.getDuration()+" "+this.getFrequency();
     }
 
 }

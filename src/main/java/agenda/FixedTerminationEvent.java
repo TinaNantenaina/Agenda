@@ -91,5 +91,10 @@ public class FixedTerminationEvent extends RepetitiveEvent {
                  return this.getStart().toLocalDate();
          }
     }
+    
+    @Override
+    public String toString(){
+        return this.getTitle()+" "+this.getStart()+" "+this.getDuration()+" "+this.getFrequency()+" "+this.getNumberOfOccurrences()+" "+this.getTerminationDate();
+    }
         
 }

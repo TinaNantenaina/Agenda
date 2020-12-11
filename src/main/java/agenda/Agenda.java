@@ -8,15 +8,19 @@ import java.util.*;
  */
 public class Agenda {
     
-     List<Event> agenda = new LinkedList<>();
     /**
      * Adds an event to this agenda
      *
      * @param e the event to add
      */
+    private ArrayList<Event> listEvent;
+    public Agenda(){
+       this.listEvent = new ArrayList<>(); 
+    }
     
     public void addEvent(Event e) {
-        agenda.add(e);
+        this.listEvent.add(e);
+    }
 
     /**
      * Computes the events that occur on a given day
@@ -26,12 +30,12 @@ public class Agenda {
      */
     public List<Event> eventsInDay(LocalDate day){
         // méthode implémentée
-        List eventsInDay = new LinkedList<>();
-        for (Event event : agenda){
-            if(event.isInDay(day))
-                eventsInDay.add(event);
+        ArrayList<Event> liste = new ArrayList();
+        for (Event e: listEvent ){
+            if(e.isInDay(day))
+               liste.add(e);
         }
-          return eventsInDay;
+          return liste;
         
     }
 }
