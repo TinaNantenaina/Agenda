@@ -55,7 +55,7 @@ public class Event {
     /**
      * @return the myTitle
      */
-    public String getTitle() {
+    public String getTitle(){
         return myTitle;
     }
 
