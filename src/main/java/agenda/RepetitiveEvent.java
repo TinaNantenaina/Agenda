@@ -8,6 +8,10 @@ import java.time.temporal.ChronoUnit;
  * Description : A repetitive Event
  */
 public class RepetitiveEvent extends Event {
+    public ChronoUnit frequency;
+    public Duration duration;
+    public ArrayList<LocalDate> exception;
+    
     /**
      * Constructs a repetitive event
      *
@@ -23,8 +27,10 @@ public class RepetitiveEvent extends Event {
      */
     public RepetitiveEvent(String title, LocalDateTime start, Duration duration, ChronoUnit frequency) {
         super(title, start, duration);
-        // TODO : implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        // méthode implémentée
+        this.frequency = frequency;
+        this.duration = duration;
+        this.exception = new ArrayList<>();
     }
 
     /**
@@ -33,17 +39,18 @@ public class RepetitiveEvent extends Event {
      * @param date the event will not occur at this date
      */
     public void addException(LocalDate date) {
-        // TODO : implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        // méthode implémentée
+        this.exception.add(date);
     }
+    
 
     /**
      *
      * @return the type of repetition
      */
     public ChronoUnit getFrequency() {
-        // TODO : implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");    
+        // méthode implémentée
+        return this.frequency;   
     }
 
 }

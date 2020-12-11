@@ -80,7 +80,7 @@ public class FixedTerminationEvent extends RepetitiveEvent {
     }
 
     private LocalDate calculDateFin() {
-         switch(this.getFrequency()){
+         switch(this.frequency){
              case DAYS :
                 return this.getStart().plus(this.getNumberOfOccurrences()-1, ChronoUnit.DAYS).toLocalDate();
              case WEEKS :
