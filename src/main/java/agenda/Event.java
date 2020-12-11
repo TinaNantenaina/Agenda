@@ -74,6 +74,10 @@ public class Event {
         return myStart.plus(this.getDuration());
     }
 
+    @Override
+    public String toString(){
+        return getTitle();
+    }
    
     
 }
