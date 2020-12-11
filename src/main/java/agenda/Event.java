@@ -1,6 +1,10 @@
 package agenda;
 
 import java.time.*;
+import java.time.chrono.ChronoLocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+
 
 public class Event {
 
@@ -40,12 +44,12 @@ public class Event {
      * @return true if the event occurs on that day, false otherwise
      */
     public boolean isInDay(LocalDate aDay) {
-        // TODO : implémenter cette méthode
-        boolean isInDay = false;
-        LocalDateTime dayEnd = getEnd();
-        if(aDay.compareTo(myStart.toLocalDate())>=0 && aDay.compareTo(dayEnd.toLocalDate())<=0)
-            isInDay = true;
-        return isInDay;
+         public boolean isInDay(LocalDate aDay) {
+        if (aDay.isEqual(ChronoLocalDate.from(this.myStart)) || aDay.isEqual(ChronoLocalDate.from(this.myStart.plus(this.myDuration))) || aDay.isBefore(ChronoLocalDate.from(this.myStart.plus(this.myDuration))) && aDay.isAfter(ChronoLocalDate.from(this.myStart))) {
+            return true;
+            
+        } else {
+            return false;
     }
    
     /**
