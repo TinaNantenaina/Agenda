@@ -12,9 +12,12 @@ public class Agenda {
      *
      * @param e the event to add
      */
+    
+    List<Event> agenda = new LinkedList<>();
+    
     public void addEvent(Event e) {
-        // TODO : implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        // méthode implémentée
+        agenda.add(e);
     }
 
     /**
@@ -24,7 +27,13 @@ public class Agenda {
      * @return and iteraror to the events that occur on that day
      */
     public List<Event> eventsInDay(LocalDate day) {
-        // TODO : implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        // méthode implémentée
+        List eventsInDay = new LinkedList<>();
+        for (Event event : agenda){
+            if(event.isInDay(day))
+                eventsInDay.add(event);
+        }
+          return eventsInDay;
+        
     }
 }
