@@ -1,7 +1,6 @@
 package agenda;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.*;
 
 /**
@@ -9,7 +8,7 @@ import java.util.*;
  */
 public class Agenda {
     
-     public HashSet<Event> Events = new HashSet<Event>();
+     List<Event> agenda = new LinkedList<>();
     /**
      * Adds an event to this agenda
      *
@@ -17,7 +16,7 @@ public class Agenda {
      */
     
     public void addEvent(Event e) {
-        this.Events.add(e);
+        agenda.add(e);
 
     /**
      * Computes the events that occur on a given day
@@ -25,7 +24,7 @@ public class Agenda {
      * @param day the day toi test
      * @return and iteraror to the events that occur on that day
      */
-    public List<Event> eventsInDay(LocalDate day) {
+    public List<Event> eventsInDay(LocalDate day){
         // méthode implémentée
         List eventsInDay = new LinkedList<>();
         for (Event event : agenda){
@@ -36,3 +35,4 @@ public class Agenda {
         
     }
 }
+        
